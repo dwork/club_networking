@@ -15,6 +15,13 @@ function club_networking_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function club_networking_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function club_networking_node_info() {
@@ -39,6 +46,14 @@ function club_networking_node_info() {
       'name' => t('Referral Exchange'),
       'base' => 'node_content',
       'description' => t('Referral Exchange, referral or lead'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'substitute' => array(
+      'name' => t('Substitute'),
+      'base' => 'node_content',
+      'description' => t('List of substitutes, contact information and other pertinent data'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
