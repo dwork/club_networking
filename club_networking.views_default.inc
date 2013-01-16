@@ -39,36 +39,41 @@ function club_networking_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 1;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'views_calc';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
-      'field' => 'name',
+      'field' => 'name_1',
       'rendered' => 1,
       'rendered_strip' => 0,
     ),
   );
   $handler->display->display_options['style_options']['columns'] = array(
-    'name' => 'name',
     'name_1' => 'name_1',
+    'name' => 'name',
     'field_date' => 'field_date',
     'title' => 'title',
     'field_second_level_referral' => 'field_second_level_referral',
+    'field_value' => 'field_value',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'name' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
     'name_1' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'field_date' => array(
       'sortable' => 0,
@@ -76,6 +81,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'title' => array(
       'sortable' => 0,
@@ -83,6 +90,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'field_second_level_referral' => array(
       'sortable' => 0,
@@ -90,11 +99,26 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
+    ),
+    'field_value' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_calc' => 1,
+      'calc' => array(
+        'SUM' => 'SUM',
+      ),
     ),
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['detailed_values'] = '0';
+  $handler->display->display_options['style_options']['precision'] = '0';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_referred_member_target_id']['id'] = 'field_referred_member_target_id';
   $handler->display->display_options['relationships']['field_referred_member_target_id']['table'] = 'field_data_field_referred_member';
@@ -159,10 +183,11 @@ function club_networking_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_user'] = 0;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: Content: Date */
+  /* Field: Content: Meeting/Event Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = 'Date';
   $handler->display->display_options['fields']['field_date']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
@@ -290,7 +315,7 @@ function club_networking_views_default_views() {
     'business_exchange' => 'business_exchange',
     'referral_exchange' => 'referral_exchange',
   );
-  /* Filter criterion: Content: Date (field_date) */
+  /* Filter criterion: Content: Meeting/Event Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -363,7 +388,7 @@ function club_networking_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = 1;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'views_calc';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'name',
@@ -377,6 +402,7 @@ function club_networking_views_default_views() {
     'field_date' => 'field_date',
     'title' => 'title',
     'field_second_level_referral' => 'field_second_level_referral',
+    'field_value' => 'field_value',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -386,6 +412,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'name_1' => array(
       'sortable' => 0,
@@ -393,6 +421,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'field_date' => array(
       'sortable' => 0,
@@ -400,6 +430,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'title' => array(
       'sortable' => 0,
@@ -407,6 +439,8 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
     ),
     'field_second_level_referral' => array(
       'sortable' => 0,
@@ -414,11 +448,26 @@ function club_networking_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+      'has_calc' => 0,
+      'calc' => array(),
+    ),
+    'field_value' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-right',
+      'separator' => '',
+      'empty_column' => 0,
+      'has_calc' => 1,
+      'calc' => array(
+        'SUM' => 'SUM',
+      ),
     ),
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['detailed_values'] = '0';
+  $handler->display->display_options['style_options']['precision'] = '0';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_referred_member_target_id']['id'] = 'field_referred_member_target_id';
   $handler->display->display_options['relationships']['field_referred_member_target_id']['table'] = 'field_data_field_referred_member';
@@ -483,10 +532,11 @@ function club_networking_views_default_views() {
   $handler->display->display_options['fields']['name_1']['link_to_user'] = 0;
   $handler->display->display_options['fields']['name_1']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name_1']['format_username'] = 1;
-  /* Field: Content: Date */
+  /* Field: Content: Meeting/Event Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = 'Date';
   $handler->display->display_options['fields']['field_date']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
@@ -613,7 +663,7 @@ function club_networking_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'business_exchange' => 'business_exchange',
   );
-  /* Filter criterion: Content: Date (field_date) */
+  /* Filter criterion: Content: Meeting/Event Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -803,10 +853,11 @@ function club_networking_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_user'] = 0;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: Content: Date */
+  /* Field: Content: Meeting/Event Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = 'Date';
   $handler->display->display_options['fields']['field_date']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
@@ -904,7 +955,7 @@ function club_networking_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'referral_exchange' => 'referral_exchange',
   );
-  /* Filter criterion: Content: Date (field_date) */
+  /* Filter criterion: Content: Meeting/Event Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -1097,10 +1148,11 @@ function club_networking_views_default_views() {
   $handler->display->display_options['fields']['name_1']['link_to_user'] = 0;
   $handler->display->display_options['fields']['name_1']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name_1']['format_username'] = 1;
-  /* Field: Content: Date */
+  /* Field: Content: Meeting/Event Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = 'Date';
   $handler->display->display_options['fields']['field_date']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
@@ -1199,7 +1251,7 @@ function club_networking_views_default_views() {
     'referral_exchange' => 'referral_exchange',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Date (field_date) */
+  /* Filter criterion: Content: Meeting/Event Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -1342,29 +1394,27 @@ function club_networking_views_default_views() {
       'empty_column' => 0,
     ),
     'field_chapter' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'php' => array(
-      'align' => 'views-align-center',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'php_1' => array(
-      'align' => 'views-align-center',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'php_2' => array(
-      'align' => 'views-align-center',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'php_3' => array(
-      'align' => 'views-align-center',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
@@ -1372,6 +1422,26 @@ function club_networking_views_default_views() {
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  /* Header: Export to CSV (Link) */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['ui_name'] = 'Export to CSV (Link)';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<a href="referrals-csv" target="_blank">+ Export to CSV</a>
+<BR>';
+  /* Footer: Global: PHP */
+  $handler->display->display_options['footer']['php']['id'] = 'php';
+  $handler->display->display_options['footer']['php']['table'] = 'views';
+  $handler->display->display_options['footer']['php']['field'] = 'php';
+  $handler->display->display_options['footer']['php']['empty'] = FALSE;
+  $handler->display->display_options['footer']['php']['php_output'] = '<?php
+  global $g,$r,$given,$givenct,$received,$receivedct;
+  print "REPORT TOTALS<BR><TABLE>";
+  print "<TR><TH></TH><TH>Given</TH><TH>Received</TH><TH colspan=2>Given</TH><TH colspan=2>Received</TH></TR>";
+  print "<TR><TD></TD><TD>$gi</TD><TD>$r</TD><TD>$given</TD><TD>$givenct</TD><TD>$received</TD><TD>$receivedct</TD></TR>";
+  print "</TABLE>";
+?>';
   /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_uid_node']['id'] = 'reverse_field_uid_node';
   $handler->display->display_options['relationships']['reverse_field_uid_node']['table'] = 'users';
@@ -1610,6 +1680,627 @@ function club_networking_views_default_views() {
   $handler->display->display_options['fields']['php']['hide_empty'] = 0;
   $handler->display->display_options['fields']['php']['empty_zero'] = 0;
   $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 1;
+  $handler->display->display_options['fields']['php']['php_setup'] = 'function new_chapter () {
+    global $totalary;
+    $totalary = array();
+
+    $query = new EntityFieldQuery();
+    $query->entityCondition(\'entity_type\', \'node\')
+      ->entityCondition(\'bundle\', \'chapter\')
+      ->propertyCondition(\'status\', 1);
+
+    $result = $query->execute();
+
+    if (isset($result[\'node\'])) {
+      foreach (array_keys($result[\'node\']) as $key) {
+        $chapter = node_load($key);
+        $totalary[$chapter->title] = array (
+           "title" => $chapter->title,
+           "given" => \'\',
+           "received" => \'\',
+           "givenamt" => \'\',
+           "givenct" => \'\',
+           "receivedamt" => \'\',
+           "receivedct" =>\'\',
+        );    
+
+      }
+   }
+}';
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $total = network_accumulate($row->uid,\'Given\',$ary);
+  if ($total > 0) {
+     print $total;
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     if (!isset($totalary[$chapter]) || !isset($totalary[$chapter][\'title\'])) {
+        new_chapter();
+     }
+     $totalary[$chapter][\'given\'] += $total;
+  }
+?>
+';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['fields']['php_1']['table'] = 'views';
+  $handler->display->display_options['fields']['php_1']['field'] = 'php';
+  $handler->display->display_options['fields']['php_1']['label'] = 'Received';
+  $handler->display->display_options['fields']['php_1']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_1']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_1']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $total = network_accumulate($row->uid,\'Received\',$ary);
+  if ($total > 0) {
+     print $total;
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     $totalary[$chapter][\'received\'] += $total;  }
+?>';
+  $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_2']['id'] = 'php_2';
+  $handler->display->display_options['fields']['php_2']['table'] = 'views';
+  $handler->display->display_options['fields']['php_2']['field'] = 'php';
+  $handler->display->display_options['fields']['php_2']['label'] = 'Given$';
+  $handler->display->display_options['fields']['php_2']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_2']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_2']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_2']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_2']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_2']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_2']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_2']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_2']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_2']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_2']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Given$\',$ary);
+  if ($totals[1] > 0) {
+     print \'$ \'. number_format($totals[1]);
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     $totalary[$chapter][\'givenamt\'] += $totals[1];  
+  }
+?>';
+  $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_2']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_4']['id'] = 'php_4';
+  $handler->display->display_options['fields']['php_4']['table'] = 'views';
+  $handler->display->display_options['fields']['php_4']['field'] = 'php';
+  $handler->display->display_options['fields']['php_4']['label'] = 'Ct';
+  $handler->display->display_options['fields']['php_4']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_4']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_4']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_4']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_4']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_4']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_4']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_4']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_4']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_4']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Given$\',$ary);
+  if ($totals[0] > 0) {
+     print $totals[0];
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     $totalary[$chapter][\'givenct\'] += $totals[0];
+  }
+?>';
+  $handler->display->display_options['fields']['php_4']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_4']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_3']['id'] = 'php_3';
+  $handler->display->display_options['fields']['php_3']['table'] = 'views';
+  $handler->display->display_options['fields']['php_3']['field'] = 'php';
+  $handler->display->display_options['fields']['php_3']['label'] = 'Received$';
+  $handler->display->display_options['fields']['php_3']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_3']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_3']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_3']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_3']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_3']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_3']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_3']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_3']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_3']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_3']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Received$\',$ary);
+  if ($totals[1] > 0) {
+     print \'$ \'.number_format($totals[1]);
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     $totalary[$chapter][\'receivedamt\'] += $totals[1];
+  }
+?>';
+  $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_3']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_5']['id'] = 'php_5';
+  $handler->display->display_options['fields']['php_5']['table'] = 'views';
+  $handler->display->display_options['fields']['php_5']['field'] = 'php';
+  $handler->display->display_options['fields']['php_5']['label'] = 'Ct';
+  $handler->display->display_options['fields']['php_5']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_5']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_5']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_5']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_5']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_5']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_5']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_5']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_5']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_5']['php_output'] = '<?php
+  global $totalary;
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Received$\',$ary);
+  if ($totals[0] > 0) {
+     print $totals[0];
+     $chapter = $data->field_field_chapter[0]["rendered"]["#markup"];
+     $totalary[$chapter][\'receivedct\'] += $totals[0];
+  }
+?>';
+  $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_5']['php_click_sortable'] = '';
+  /* Sort criterion: Field: Chapter/Club (field_chapter) */
+  $handler->display->display_options['sorts']['field_chapter_target_id']['id'] = 'field_chapter_target_id';
+  $handler->display->display_options['sorts']['field_chapter_target_id']['table'] = 'field_data_field_chapter';
+  $handler->display->display_options['sorts']['field_chapter_target_id']['field'] = 'field_chapter_target_id';
+  /* Sort criterion: Field: Last Name (field_last_name) */
+  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
+  /* Sort criterion: Field: First Name (field_first_name) */
+  $handler->display->display_options['sorts']['field_first_name_value']['id'] = 'field_first_name_value';
+  $handler->display->display_options['sorts']['field_first_name_value']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['sorts']['field_first_name_value']['field'] = 'field_first_name_value';
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Field: Member Status (field_status) */
+  $handler->display->display_options['filters']['field_status_tid']['id'] = 'field_status_tid';
+  $handler->display->display_options['filters']['field_status_tid']['table'] = 'field_data_field_status';
+  $handler->display->display_options['filters']['field_status_tid']['field'] = 'field_status_tid';
+  $handler->display->display_options['filters']['field_status_tid']['value'] = array(
+    2 => '2',
+    4 => '4',
+    3 => '3',
+  );
+  $handler->display->display_options['filters']['field_status_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_status_tid']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'member_status';
+  /* Filter criterion: Content: Meeting/Event Date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'reverse_field_uid_node';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = 'between';
+  $handler->display->display_options['filters']['field_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
+  $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
+  $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+0';
+  /* Filter criterion: Global: PHP */
+  $handler->display->display_options['filters']['php']['id'] = 'php';
+  $handler->display->display_options['filters']['php']['table'] = 'views';
+  $handler->display->display_options['filters']['php']['field'] = 'php';
+  $handler->display->display_options['filters']['php']['group'] = 1;
+  $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['filters']['php']['php_filter'] = '// Filter on this user\'s chapter
+global $user;
+$usernode = user_load($user->uid);
+$thisuser = user_load($row->uid);
+if ($user->uid == 1) {
+  return FALSE;
+} else if ($usernode->field_chapter[\'und\'][0][\'target_id\'] == $thisuser->field_chapter[\'und\'][0][\'target_id\']) {
+  return FALSE;
+}
+return TRUE;';
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'users';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 2;
+  /* Filter criterion: Field: Member Status (field_status) */
+  $handler->display->display_options['filters']['field_status_tid_1']['id'] = 'field_status_tid_1';
+  $handler->display->display_options['filters']['field_status_tid_1']['table'] = 'field_data_field_status';
+  $handler->display->display_options['filters']['field_status_tid_1']['field'] = 'field_status_tid';
+  $handler->display->display_options['filters']['field_status_tid_1']['value'] = array(
+    2 => '2',
+    4 => '4',
+    3 => '3',
+  );
+  $handler->display->display_options['filters']['field_status_tid_1']['group'] = 2;
+  $handler->display->display_options['filters']['field_status_tid_1']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['field_status_tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['field_status_tid_1']['vocabulary'] = 'member_status';
+  /* Filter criterion: Global: PHP */
+  $handler->display->display_options['filters']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['filters']['php_1']['table'] = 'views';
+  $handler->display->display_options['filters']['php_1']['field'] = 'php';
+  $handler->display->display_options['filters']['php_1']['group'] = 2;
+  $handler->display->display_options['filters']['php_1']['use_php_setup'] = 0;
+  $handler->display->display_options['filters']['php_1']['php_filter'] = '// Filter on this user\'s chapter
+global $user;
+$usernode = user_load($user->uid);
+$thisuser = user_load($row->uid);
+if ($user->uid == 1) {
+  return FALSE;
+} else if ($usernode->field_chapter[\'und\'][0][\'target_id\'] == $thisuser->field_chapter[\'und\'][0][\'target_id\']) {
+  return FALSE;
+}
+return TRUE;';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Report Totals */
+  $handler->display->display_options['footer']['php']['id'] = 'php';
+  $handler->display->display_options['footer']['php']['table'] = 'views';
+  $handler->display->display_options['footer']['php']['field'] = 'php';
+  $handler->display->display_options['footer']['php']['ui_name'] = 'Report Totals';
+  $handler->display->display_options['footer']['php']['empty'] = FALSE;
+  $handler->display->display_options['footer']['php']['php_output'] = '<?php
+  global $totalary;
+  /*  [\'title\'] = Chapter name
+      [\'given\'] = Given
+      [\'received\'] = Received
+      [\'givenamt\'] = Given $
+      [\'givenct\'] = Given Ct
+      [\'receivedamt\'] = Received
+      [\'receivedct\'] = Received Ct
+  */
+
+  $tg = 0;
+  $tr = 0;
+  $tgiven = 0;
+  $tgivenct = 0;
+  $treceived = 0;
+  $treceivedct = 0;
+
+  print "REPORT TOTALS<BR><TABLE>";
+  print "<TR><TH>Chapter</TH><TH>Given</TH><TH>Received</TH><TH colspan=2>Given</TH><TH colspan=2>Received</TH></TR>";
+  foreach ($totalary as $key => $v) {
+      print "<TR>";
+      print "<TD>".$key."</TD>";
+      print "<TD>".$v["given"]."</TD>";    $tg += $v[\'given\'];
+      print "<TD>".$v["received"]."</TD>";   $tr += $v[\'received\'];
+      print "<TD>$ ".number_format($v["givenamt"])."</TD>";   $tgiven += $v[\'givenamt\'];
+      print "<TD>".$v["givenct"]."</TD>";   $tgivenct += $v[\'givenct\'];
+      print "<TD>$ ".number_format($v["receivedamt"])."</TD>";    $treceived += $v[\'receivedamt\'];
+      print "<TD>".$v["receivedct"]."</TD>";   $treceivedct += $v[\'receivedct\'];
+      print "</TR>";
+  }
+  print "<TR>";
+      print "<TD>REPORT TOTAL</TD>";
+      print "<TD>".$tg."</TD>";  
+      print "<TD>".$tr."</TD>";  
+      print "<TD>$ ".number_format($tgiven)."</TD>";  
+      print "<TD>".$tgivenct."</TD>"; 
+      print "<TD>$ ".number_format($treceived)."</TD>"; 
+      print "<TD>".$treceivedct."</TD>";
+      print "</TR>";
+  print "</TR>";
+  print "</TABLE>";
+?>';
+  $handler->display->display_options['path'] = 'referrals';
+
+  /* Display: Data export */
+  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Chapter/Club Name */
+  $handler->display->display_options['fields']['field_chapter']['id'] = 'field_chapter';
+  $handler->display->display_options['fields']['field_chapter']['table'] = 'field_data_field_chapter';
+  $handler->display->display_options['fields']['field_chapter']['field'] = 'field_chapter';
+  $handler->display->display_options['fields']['field_chapter']['ui_name'] = 'Chapter/Club Name';
+  $handler->display->display_options['fields']['field_chapter']['label'] = 'Chapter';
+  $handler->display->display_options['fields']['field_chapter']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_chapter']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_chapter']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_chapter']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_chapter']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_chapter']['group_rows'] = 1;
+  $handler->display->display_options['fields']['field_chapter']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_chapter']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['delta_first_last'] = 0;
+  $handler->display->display_options['fields']['field_chapter']['field_api_classes'] = 0;
+  /* Field: UID (hidden) */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['ui_name'] = 'UID (hidden)';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['uid']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['uid']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['uid']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['uid']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = 0;
+  /* Field: User name (hidden) */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['ui_name'] = 'User name (hidden)';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 0;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  $handler->display->display_options['fields']['name']['format_username'] = 1;
+  /* Field: First Name (hidden) */
+  $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['ui_name'] = 'First Name (hidden)';
+  $handler->display->display_options['fields']['field_first_name']['label'] = '';
+  $handler->display->display_options['fields']['field_first_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_first_name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_first_name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_first_name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_first_name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_first_name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_first_name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_first_name']['field_api_classes'] = 0;
+  /* Field: Last Name (hidden) */
+  $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['ui_name'] = 'Last Name (hidden)';
+  $handler->display->display_options['fields']['field_last_name']['label'] = '';
+  $handler->display->display_options['fields']['field_last_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_last_name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_last_name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_last_name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_last_name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_last_name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_last_name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_last_name']['field_api_classes'] = 0;
+  /* Field: Middle Name (hidden) */
+  $handler->display->display_options['fields']['field_middle_initial']['id'] = 'field_middle_initial';
+  $handler->display->display_options['fields']['field_middle_initial']['table'] = 'field_data_field_middle_initial';
+  $handler->display->display_options['fields']['field_middle_initial']['field'] = 'field_middle_initial';
+  $handler->display->display_options['fields']['field_middle_initial']['ui_name'] = 'Middle Name (hidden)';
+  $handler->display->display_options['fields']['field_middle_initial']['label'] = '';
+  $handler->display->display_options['fields']['field_middle_initial']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_middle_initial']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_middle_initial']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_middle_initial']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_middle_initial']['field_api_classes'] = 0;
+  /* Field: Suffix (hidden) */
+  $handler->display->display_options['fields']['field_suffix']['id'] = 'field_suffix';
+  $handler->display->display_options['fields']['field_suffix']['table'] = 'field_data_field_suffix';
+  $handler->display->display_options['fields']['field_suffix']['field'] = 'field_suffix';
+  $handler->display->display_options['fields']['field_suffix']['ui_name'] = 'Suffix (hidden)';
+  $handler->display->display_options['fields']['field_suffix']['label'] = '';
+  $handler->display->display_options['fields']['field_suffix']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_suffix']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_suffix']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_suffix']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_suffix']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_suffix']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_suffix']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_suffix']['field_api_classes'] = 0;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Member';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_first_name] [field_middle_initial] [field_last_name] [field_suffix] ';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = 'Given';
+  $handler->display->display_options['fields']['php']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
   $ary = $view->get_exposed_input();
@@ -1682,11 +2373,44 @@ function club_networking_views_default_views() {
   $ary = $view->get_exposed_input();
   $totals= network_accumulate($row->uid,\'Given$\',$ary);
   if ($totals[1] > 0) {
-     print \'$ \'. number_format($totals[1]) . " ($totals[0])";
+     print $totals[1];
   }
 ?>';
   $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_2']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_4']['id'] = 'php_4';
+  $handler->display->display_options['fields']['php_4']['table'] = 'views';
+  $handler->display->display_options['fields']['php_4']['field'] = 'php';
+  $handler->display->display_options['fields']['php_4']['label'] = 'Ct';
+  $handler->display->display_options['fields']['php_4']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_4']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_4']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_4']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_4']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_4']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_4']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_4']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_4']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_4']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_4']['php_output'] = '<?php
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Given$\',$ary);
+  if ($totals[0] > 0) {
+     print $totals[0];
+  }
+?>';
+  $handler->display->display_options['fields']['php_4']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_4']['php_click_sortable'] = '';
   /* Field: Global: PHP */
   $handler->display->display_options['fields']['php_3']['id'] = 'php_3';
   $handler->display->display_options['fields']['php_3']['table'] = 'views';
@@ -1715,117 +2439,49 @@ function club_networking_views_default_views() {
   $ary = $view->get_exposed_input();
   $totals= network_accumulate($row->uid,\'Received$\',$ary);
   if ($totals[1] > 0) {
-     print \'$ \'.number_format($totals[1]) . " ($totals[0])";
+     print $totals[1];
   }
 ?>';
   $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_3']['php_click_sortable'] = '';
-  /* Sort criterion: Field: Chapter/Club (field_chapter) */
-  $handler->display->display_options['sorts']['field_chapter_target_id']['id'] = 'field_chapter_target_id';
-  $handler->display->display_options['sorts']['field_chapter_target_id']['table'] = 'field_data_field_chapter';
-  $handler->display->display_options['sorts']['field_chapter_target_id']['field'] = 'field_chapter_target_id';
-  /* Sort criterion: Field: Last Name (field_last_name) */
-  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
-  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
-  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
-  /* Sort criterion: Field: First Name (field_first_name) */
-  $handler->display->display_options['sorts']['field_first_name_value']['id'] = 'field_first_name_value';
-  $handler->display->display_options['sorts']['field_first_name_value']['table'] = 'field_data_field_first_name';
-  $handler->display->display_options['sorts']['field_first_name_value']['field'] = 'field_first_name_value';
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'AND',
-    2 => 'AND',
-  );
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'users';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Field: Member Status (field_status) */
-  $handler->display->display_options['filters']['field_status_tid']['id'] = 'field_status_tid';
-  $handler->display->display_options['filters']['field_status_tid']['table'] = 'field_data_field_status';
-  $handler->display->display_options['filters']['field_status_tid']['field'] = 'field_status_tid';
-  $handler->display->display_options['filters']['field_status_tid']['value'] = array(
-    2 => '2',
-    4 => '4',
-    3 => '3',
-  );
-  $handler->display->display_options['filters']['field_status_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_status_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'member_status';
-  /* Filter criterion: Content: Date (field_date) */
-  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'reverse_field_uid_node';
-  $handler->display->display_options['filters']['field_date_value']['operator'] = 'between';
-  $handler->display->display_options['filters']['field_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
-  $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
-  $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
-  $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+0';
-  /* Filter criterion: Global: PHP */
-  $handler->display->display_options['filters']['php']['id'] = 'php';
-  $handler->display->display_options['filters']['php']['table'] = 'views';
-  $handler->display->display_options['filters']['php']['field'] = 'php';
-  $handler->display->display_options['filters']['php']['group'] = 1;
-  $handler->display->display_options['filters']['php']['use_php_setup'] = 0;
-  $handler->display->display_options['filters']['php']['php_filter'] = '// Filter on this user\'s chapter
-global $user;
-$usernode = user_load($user->uid);
-$thisuser = user_load($row->uid);
-if ($user->uid == 1) {
-  return FALSE;
-} else if ($usernode->field_chapter[\'und\'][0][\'target_id\'] == $thisuser->field_chapter[\'und\'][0][\'target_id\']) {
-  return FALSE;
-}
-return TRUE;';
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
-  $handler->display->display_options['filters']['status_1']['table'] = 'users';
-  $handler->display->display_options['filters']['status_1']['field'] = 'status';
-  $handler->display->display_options['filters']['status_1']['value'] = '1';
-  $handler->display->display_options['filters']['status_1']['group'] = 2;
-  /* Filter criterion: Field: Member Status (field_status) */
-  $handler->display->display_options['filters']['field_status_tid_1']['id'] = 'field_status_tid_1';
-  $handler->display->display_options['filters']['field_status_tid_1']['table'] = 'field_data_field_status';
-  $handler->display->display_options['filters']['field_status_tid_1']['field'] = 'field_status_tid';
-  $handler->display->display_options['filters']['field_status_tid_1']['value'] = array(
-    2 => '2',
-    4 => '4',
-    3 => '3',
-  );
-  $handler->display->display_options['filters']['field_status_tid_1']['group'] = 2;
-  $handler->display->display_options['filters']['field_status_tid_1']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_status_tid_1']['type'] = 'select';
-  $handler->display->display_options['filters']['field_status_tid_1']['vocabulary'] = 'member_status';
-  /* Filter criterion: Global: PHP */
-  $handler->display->display_options['filters']['php_1']['id'] = 'php_1';
-  $handler->display->display_options['filters']['php_1']['table'] = 'views';
-  $handler->display->display_options['filters']['php_1']['field'] = 'php';
-  $handler->display->display_options['filters']['php_1']['group'] = 2;
-  $handler->display->display_options['filters']['php_1']['use_php_setup'] = 0;
-  $handler->display->display_options['filters']['php_1']['php_filter'] = '// Filter on this user\'s chapter
-global $user;
-$usernode = user_load($user->uid);
-$thisuser = user_load($row->uid);
-if ($user->uid == 1) {
-  return FALSE;
-} else if ($usernode->field_chapter[\'und\'][0][\'target_id\'] == $thisuser->field_chapter[\'und\'][0][\'target_id\']) {
-  return FALSE;
-}
-return TRUE;';
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'referrals';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_5']['id'] = 'php_5';
+  $handler->display->display_options['fields']['php_5']['table'] = 'views';
+  $handler->display->display_options['fields']['php_5']['field'] = 'php';
+  $handler->display->display_options['fields']['php_5']['label'] = 'Ct';
+  $handler->display->display_options['fields']['php_5']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['php_5']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['php_5']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['php_5']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['php_5']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['php_5']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['php_5']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['php_5']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['php_5']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['php_5']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_5']['php_output'] = '<?php
+  $ary = $view->get_exposed_input();
+  $totals= network_accumulate($row->uid,\'Received$\',$ary);
+  if ($totals[0] > 0) {
+     print $totals[0];
+  }
+?>';
+  $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_5']['php_click_sortable'] = '';
+  /* Field: Field: Chapter/Club */
+  $handler->display->display_options['fields']['field_chapter_1']['id'] = 'field_chapter_1';
+  $handler->display->display_options['fields']['field_chapter_1']['table'] = 'field_data_field_chapter';
+  $handler->display->display_options['fields']['field_chapter_1']['field'] = 'field_chapter';
+  $handler->display->display_options['path'] = 'referrals-csv';
   $export['referrals'] = $view;
 
   $view = new view;

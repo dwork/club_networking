@@ -57,6 +57,12 @@ function club_networking_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -131,6 +137,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'list_default',
           'weight' => '7',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -222,6 +234,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '1',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -300,6 +318,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'date_default',
           'weight' => '5',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -384,6 +408,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'list_default',
           'weight' => '6',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -474,6 +504,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '3',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -563,6 +599,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'entityreference_label',
           'weight' => '4',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -657,6 +699,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '2',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -733,6 +781,12 @@ function club_networking_field_default_fields() {
           'type' => 'text_default',
           'weight' => '8',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -801,6 +855,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'number_decimal',
           'weight' => '9',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -875,6 +935,12 @@ function club_networking_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
@@ -975,6 +1041,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 4,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1054,6 +1126,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'date_default',
           'weight' => 6,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1156,6 +1234,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 2,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1250,6 +1334,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 1,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1324,6 +1414,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => 3,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1417,6 +1513,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 5,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1488,6 +1590,12 @@ function club_networking_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
@@ -1588,6 +1696,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 5,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1667,6 +1781,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'date_default',
           'weight' => 3,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1770,6 +1890,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 6,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1859,6 +1985,12 @@ function club_networking_field_default_fields() {
           ),
           'type' => 'entityreference_label',
           'weight' => 2,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1953,6 +2085,12 @@ function club_networking_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => 1,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2028,6 +2166,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => 4,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2107,6 +2251,12 @@ function club_networking_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => '2',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2179,6 +2329,12 @@ function club_networking_field_default_fields() {
           'type' => 'text_default',
           'weight' => '6',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2239,6 +2395,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'local_phone_number',
           'weight' => '4',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2542,6 +2704,12 @@ function club_networking_field_default_fields() {
           'type' => 'email_default',
           'weight' => '5',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2613,6 +2781,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '3',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2687,6 +2861,12 @@ function club_networking_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2759,6 +2939,12 @@ function club_networking_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '1',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',

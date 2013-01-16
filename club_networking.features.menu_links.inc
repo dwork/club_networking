@@ -154,6 +154,24 @@ function club_networking_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-45',
   );
+  // Exported menu link: navigation:substitute-list
+  $menu_links['navigation:substitute-list'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'substitute-list',
+    'router_path' => 'substitute-list',
+    'link_title' => 'Substitute List',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'List of substitutes',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-48',
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Bus. Exchg: Add');
@@ -164,6 +182,7 @@ function club_networking_menu_default_menu_links() {
   t('Referral Report');
   t('Referrals by Member');
   t('Referrals to Member');
+  t('Substitute List');
 
 
   return $menu_links;
