@@ -274,6 +274,15 @@ function club_networking_strongarm() {
         'path' => array(
           'weight' => '1',
         ),
+        'metatags' => array(
+          'weight' => '6',
+        ),
+        'redirect' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '7',
+        ),
       ),
       'display' => array(),
     ),

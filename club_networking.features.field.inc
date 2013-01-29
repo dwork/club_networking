@@ -172,7 +172,7 @@ function club_networking_field_default_fields() {
   $fields['node-business_exchange-field_chapter'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_chapter',
@@ -315,6 +315,7 @@ function club_networking_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
+            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => '5',
@@ -966,109 +967,11 @@ function club_networking_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '8',
+          'rows' => '4',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '7',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-m2m-field_chapter'.
-  $fields['node-m2m-field_chapter'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_chapter',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(
-        'node' => array(
-          'columns' => array(
-            'target_id' => 'nid',
-          ),
-          'table' => 'node',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'behaviors' => array(),
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'direction' => 'ASC',
-            'property' => 'title',
-            'type' => 'property',
-          ),
-          'target_bundles' => array(
-            'chapter' => 'chapter',
-          ),
-        ),
-        'handler_submit' => 'Change handler',
-        'profile2_private' => FALSE,
-        'target_type' => 'node',
-      ),
-      'translatable' => '0',
-      'type' => 'entityreference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'm2m',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Referring member\'s chapter/club',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 4,
-        ),
-        'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'entityconnect_unload_add' => '0',
-      'entityconnect_unload_edit' => '0',
-      'field_name' => 'field_chapter',
-      'label' => 'Chapter/Club',
-      'required' => 1,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '5',
       ),
     ),
   );
@@ -1165,219 +1068,19 @@ function club_networking_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
 
-  // Exported field: 'node-m2m-field_invited_member'.
-  $fields['node-m2m-field_invited_member'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_invited_member',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(
-        'users' => array(
-          'columns' => array(
-            'target_id' => 'uid',
-          ),
-          'table' => 'users',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'direction' => 'ASC',
-            'field' => 'field_last_name:value',
-            'property' => 'uid',
-            'type' => 'field',
-          ),
-          'target_bundles' => array(),
-        ),
-        'handler_submit' => 'Change handler',
-        'profile2_private' => FALSE,
-        'target_type' => 'user',
-      ),
-      'translatable' => '0',
-      'type' => 'entityreference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'm2m',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Invited member',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 2,
-        ),
-        'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'entityconnect_unload_add' => '0',
-      'entityconnect_unload_edit' => '0',
-      'field_name' => 'field_invited_member',
-      'label' => 'Invited Member',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'entityreference',
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'path' => '',
-          'size' => '60',
-        ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '6',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-m2m-field_inviting_member'.
-  $fields['node-m2m-field_inviting_member'] = array(
+  // Exported field: 'node-m2m-field_m2m_title'.
+  $fields['node-m2m-field_m2m_title'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_inviting_member',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(
-        'users' => array(
-          'columns' => array(
-            'target_id' => 'uid',
-          ),
-          'table' => 'users',
-        ),
-      ),
-      'indexes' => array(
-        'target_id' => array(
-          0 => 'target_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'entityreference',
-      'settings' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'direction' => 'ASC',
-            'field' => 'field_last_name:value',
-            'property' => 'data',
-            'type' => 'field',
-          ),
-          'target_bundles' => array(),
-        ),
-        'handler_submit' => 'Change handler',
-        'profile2_private' => FALSE,
-        'target_type' => 'user',
-      ),
-      'translatable' => '0',
-      'type' => 'entityreference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'm2m',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Member who initiated the M2M exchange',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'link' => FALSE,
-          ),
-          'type' => 'entityreference_label',
-          'weight' => 1,
-        ),
-        'entityreference_view_widget' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'entityconnect_unload_add' => '0',
-      'entityconnect_unload_edit' => '0',
-      'field_name' => 'field_inviting_member',
-      'label' => 'Inviting Member',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'entityreference',
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'path' => '',
-          'size' => 60,
-        ),
-        'type' => 'entityreference_autocomplete',
-        'weight' => '4',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-m2m-field_other_attendees'.
-  $fields['node-m2m-field_other_attendees'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_other_attendees',
+      'field_name' => 'field_m2m_title',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -1397,23 +1100,28 @@ function club_networking_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
+        'max_length' => '255',
         'profile2_private' => FALSE,
       ),
       'translatable' => '0',
-      'type' => 'text_long',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'm2m',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => 'Member 2 Member',
+        ),
+      ),
       'deleted' => '0',
-      'description' => 'Comma-delimited list of other attendees. Normally, this field should be left blank if you are adding this record manually rather than using the M2M form. Manual entries into this field are not reflected in the database.',
+      'description' => 'Title of this Member 2 Member meeting',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 3,
+          'weight' => 8,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1429,9 +1137,9 @@ function club_networking_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_other_attendees',
-      'label' => 'Other Attendees',
-      'required' => 0,
+      'field_name' => 'field_m2m_title',
+      'label' => 'M2M Title',
+      'required' => 1,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -1440,24 +1148,24 @@ function club_networking_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '3',
+          'size' => '60',
         ),
-        'type' => 'text_textarea',
-        'weight' => '8',
+        'type' => 'text_textfield',
+        'weight' => '2',
       ),
     ),
   );
 
-  // Exported field: 'node-m2m-field_referred_chapter_club'.
-  $fields['node-m2m-field_referred_chapter_club'] = array(
+  // Exported field: 'node-m2m-field_members'.
+  $fields['node-m2m-field_members'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_referred_chapter_club',
+      'field_name' => 'field_members',
       'field_permissions' => array(
-        'type' => '2',
+        'type' => '0',
       ),
       'foreign keys' => array(
         'node' => array(
@@ -1484,16 +1192,13 @@ function club_networking_field_default_fields() {
           ),
           'sort' => array(
             'direction' => 'ASC',
-            'property' => 'title',
-            'type' => 'property',
+            'field' => 'field_last_name:value',
+            'type' => 'field',
           ),
-          'target_bundles' => array(
-            'chapter' => 'chapter',
-          ),
+          'target_bundles' => array(),
         ),
-        'handler_submit' => 'Change handler',
         'profile2_private' => FALSE,
-        'target_type' => 'node',
+        'target_type' => 'user',
       ),
       'translatable' => '0',
       'type' => 'entityreference',
@@ -1502,7 +1207,7 @@ function club_networking_field_default_fields() {
       'bundle' => 'm2m',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Chapter/Club for the invited member',
+      'description' => 'Select as many members as you might need for this member to member. ',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1511,7 +1216,7 @@ function club_networking_field_default_fields() {
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => 5,
+          'weight' => 7,
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -1529,18 +1234,22 @@ function club_networking_field_default_fields() {
       'entity_type' => 'node',
       'entityconnect_unload_add' => '0',
       'entityconnect_unload_edit' => '0',
-      'field_name' => 'field_referred_chapter_club',
-      'label' => 'Invited Member Chapter/Club',
+      'field_name' => 'field_members',
+      'label' => 'Members',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '5',
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => '60',
+        ),
+        'type' => 'entityreference_autocomplete',
+        'weight' => '4',
       ),
     ),
   );
@@ -1634,7 +1343,7 @@ function club_networking_field_default_fields() {
   $fields['node-referral_exchange-field_chapter'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_chapter',
@@ -2979,11 +2688,9 @@ function club_networking_field_default_fields() {
   t('Brief description of the referral');
   t('Business Type');
   t('Chapter/Club');
-  t('Chapter/Club for the invited member');
   t('Chapter/Club for the referring member');
   t('Chapter/Club of the Referring member');
   t('Classification');
-  t('Comma-delimited list of other attendees. Normally, this field should be left blank if you are adding this record manually rather than using the M2M form. Manual entries into this field are not reflected in the database.');
   t('Comments');
   t('Contact Phone Number');
   t('Date');
@@ -2997,17 +2704,13 @@ function club_networking_field_default_fields() {
   t('First Name');
   t('If this is a 2nd level referral (not directly with a member), this is the name of that person/business');
   t('If this is a referral to a third party, enter their name/contact information here');
-  t('Invited Member');
-  t('Invited Member Chapter/Club');
-  t('Invited member');
-  t('Inviting Member');
   t('Last Name');
+  t('M2M Title');
   t('Meeting Date');
   t('Member referring business to another member');
   t('Member to whom the business is referred');
-  t('Member who initiated the M2M exchange');
+  t('Members');
   t('One or more contact phone numbers');
-  t('Other Attendees');
   t('Preferences');
   t('Referral Date');
   t('Referral Type');
@@ -3015,8 +2718,8 @@ function club_networking_field_default_fields() {
   t('Referred Member');
   t('Referred member\'s chapter/club, if more than one chapter.');
   t('Referring Member');
-  t('Referring member\'s chapter/club');
   t('Second Level Referral');
+  t('Select as many members as you might need for this member to member. ');
   t('Select the type of business, whether cash or trade.');
   t('Select the type of referral (new or repeat)');
   t('Servicing Member');
@@ -3029,6 +2732,7 @@ function club_networking_field_default_fields() {
   t('The date the business closed or was billed.');
   t('This is the "to" member, even if the closed business was with a third party (2nd level referral). ');
   t('This is the sub\'s classification. It may or many no conflict with other members of the chapter. ');
+  t('Title of this Member 2 Member meeting');
   t('Value or Amount');
   t('Value or amount of the exchange. If this a trade, you should enter the approximate trade value.');
 
