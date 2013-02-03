@@ -77,6 +77,7 @@ features[user_permission][] = clone own nodes
 features[user_permission][] = create business_exchange content
 features[user_permission][] = create m2m content
 features[user_permission][] = create referral_exchange content
+features[user_permission][] = create substitute content
 features[user_permission][] = delete any business_exchange content
 features[user_permission][] = delete any m2m content
 features[user_permission][] = delete any referral_exchange content

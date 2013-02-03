@@ -58,6 +58,17 @@ function club_networking_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: create substitute content.
+  $permissions['create substitute content'] = array(
+    'name' => 'create substitute content',
+    'roles' => array(
+      0 => 'Attendance',
+      1 => 'Secretary',
+      2 => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: delete any business_exchange content.
   $permissions['delete any business_exchange content'] = array(
     'name' => 'delete any business_exchange content',
